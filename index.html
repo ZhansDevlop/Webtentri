@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website KELAS X.3 | SMAN 1 GUNUNG SINDUR</title>
+    
+    <!-- Jika sudah dipisah menjadi 3 file, gunakan link di bawah ini -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<!-- ========================================== -->
+<!-- MULAI ISI FILE: style.css                  -->
+<!-- ========================================== -->
+<style>
+/* --- 1. RESET & DASAR --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #141414; /* Hitam ala Netflix */
+    color: white;
+    scroll-behavior: smooth; /* Efek gulir halus */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+}
+
+ul {
+    list-style: none;
+}
+
+h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+}
+
+/* --- 2. HEADER & NAVIGASI --- */
+header {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.8) 100%);
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #e50914;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.class-logo {
+    color: #e50914;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    text-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
+    transition: all 0.3s ease;
+}
+
+.class-logo:hover {
+    text-shadow: 0 6px 25px rgba(229, 9, 20, 0.6);
+    transform: scale(1.05);
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #e50914;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+}
+
+nav a:hover,
+nav a.active {
+    color: #e50914;
+}
+
+/* --- 3. BERANDA (HERO SECTION) --- */
+.hero {
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+    position: relative;
+    margin-top: 80px; /* Jarak untuk header */
+    overflow: hidden;
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(255,0,128,0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0,150,255,0.2) 0%, transparent 50%);
+    z-index: 1;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(20,20,20,0.3));
+    z-index: 2;
+}
+
+.hero-overlay {
+    background: linear-gradient(to right, rgba(0,0,0,0.95), rgba(0,0,0,0.3), rgba(0,0,0,0.95));
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 3;
+}
+
+.hero-content {
+    max-width: 600px;
+    animation: slideInUp 0.8s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tagline {
+    color: #e50914;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 20px;
+    animation: slideInUp 0.8s ease-out 0.1s both;
+}
+
+.main-title {
+    font-size: 80px;
+    font-weight: 900;
+    line-height: 1.1;
+    margin: 10px 0;
+    text-transform: uppercase;
+    letter-spacing: -3px;
+    background: linear-gradient(135deg, #ffffff 0%, #e50914 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: slideInUp 0.8s ease-out 0.2s both;
+    text-shadow: 2px 2px 20px rgba(229, 9, 20, 0.3);
+}
+
+.stats {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    animation: slideInUp 0.8s ease-out 0.3s both;
+}
+
+.match { color: #46d369; font-weight: 700; }
+.year, .seasons { color: #808080; }
+
+.description {
+    font-size: 16px;
+    color: #e0e0e0;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    animation: slideInUp 0.8s ease-out 0.4s both;
+    max-width: 500px;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 15px;
+    animation: slideInUp 0.8s ease-out 0.5s both;
+}
+
+button {
+    padding: 12px 28px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 15px;
+}
+
+.btn-primary { 
+    background-color: white; 
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 8px 24px rgba(255,255,255,0.2);
+}
+
+.btn-primary:hover { 
+    background-color: #e6e6e6;
+    transform: scale(1.05);
+    box-shadow: 0 12px 32px rgba(255,255,255,0.3);
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+.btn-secondary { 
+    background-color: rgba(128,128,128,0.5); 
+    color: white;
+    border: 2px solid rgba(255,255,255,0.3);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-secondary:hover { 
+    background-color: rgba(128,128,128,0.8);
+    border-color: rgba(255,255,255,0.6);
+    transform: scale(1.05);
+}
+
+.btn-secondary:active {
+    transform: scale(0.98);
+}
+
+/* --- 3.1. VIDEO MODAL STYLES (BARU) --- */
+.modal {
+    display: none; /* Sembunyikan secara default */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Latar belakang gelap */
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    background: #000;
+    border-radius: 8px;
+    box-shadow: 0 4px 30px rgba(229, 9, 20, 0.4);
+    animation: scaleUp 0.3s ease-out;
+}
+
+@keyframes scaleUp {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-content video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    outline: none;
+    display: block;
+}
+
+.close-btn {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: #e50914;
+    transform: scale(1.2);
+}
+
+
+/* --- 4. MEDIA SOSIAL --- */
+.social-media {
+    padding: 80px 0;
+    background: linear-gradient(180deg, #181818 0%, #0a0a0a 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.social-media::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #e50914, transparent);
+}
+
+.section-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-weight: 800;
+    background: linear-gradient(135deg, #e50914 0%, #ff6b6b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.center { text-align: center; }
+
+.social-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.social-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+    padding: 30px;
+    border-radius: 12px;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    border: 2px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.social-card:hover {
+    border-color: #e50914;
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(229, 9, 20, 0.3);
+    background: linear-gradient(135deg, rgba(229,9,20,0.1) 0%, rgba(255,255,255,0.05) 100%);
+}
+
+.social-icon { 
+    font-size: 50px; 
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.social-card:hover .social-icon {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.platform { 
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.username { 
+    color: #b0b0b0; 
+    font-size: 14px; 
+    margin-bottom: 20px;
+}
+
+.follow-btn {
+    background: linear-gradient(135deg, #e50914 0%, #ff6b6b 100%);
+    color: white;
+    padding: 10px 24px;
+    font-size: 12px;
+    font-weight: 700;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.follow-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(229, 9, 20, 0.4);
+}
+
+.follow-btn:active {
+    transform: scale(0.95);
+}
+
+/* --- 5. SISWA & KENANGAN (GRID STYLES) --- */
+.student-list, .piket, .kenangan {
+    padding: 80px 0;
+    background: linear-gradient(180deg, #0a0a0a 0%, #181818 100%);
+}
+
+.student-list {
+    background: linear-gradient(180deg, #181818 0%, #0a0a0a 100%);
+}
+
+.piket {
+    background: linear-gradient(180deg, #0a0a0a 0%, #181818 100%);
+}
+
+.kenangan {
+    background: linear-gradient(180deg, #181818 0%, #0a0a0a 100%);
+}
+
+.student-list .section-title,
+.piket .section-title,
+.kenangan .section-title {
+    background: linear-gradient(135deg, #e50914 0%, #ff6b6b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.student-grid, .piket-grid, .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+/* Kartu Siswa ala Episode */
+.student-card {
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255,255,255,0.05);
+    cursor: pointer;
+}
+
+.student-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(229,9,20,0.3) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+.student-card:hover {
+    transform: translateY(-12px);
+    border-color: #e50914;
+    box-shadow: 0 20px 40px rgba(229, 9, 20, 0.3);
+}
+
+.student-card:hover::before {
+    opacity: 1;
+}
+
+.student-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.student-card:hover img {
+    transform: scale(1.1);
+}
+
+.student-card .info {
+    padding: 15px;
+    background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.9) 100%);
+}
+
+.student-card .episode {
+    color: #e50914;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.student-card .name {
+    font-weight: 700;
+    font-size: 14px;
+    margin-top: 5px;
+    line-height: 1.3;
+}
+
+/* --- 6. PIKET --- */
+.piket-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+    padding: 25px;
+    border-radius: 12px;
+    border: 2px solid rgba(229, 9, 20, 0.3);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.piket-card:hover {
+    transform: translateY(-8px);
+    border-color: #e50914;
+    box-shadow: 0 15px 35px rgba(229, 9, 20, 0.25);
+    background: linear-gradient(135deg, rgba(229,9,20,0.15) 0%, rgba(255,255,255,0.05) 100%);
+}
+
+.piket-card .day {
+    color: #e50914;
+    font-weight: 800;
+    font-size: 20px;
+    border-left: 4px solid #e50914;
+    padding-left: 12px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.piket-card ul li {
+    font-size: 14px;
+    color: #d0d0d0;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.piket-card:hover ul li {
+    color: #ffffff;
+}
+
+/* --- 7. KENANGAN GALERI --- */
+.gallery-card {
+    border-radius: 12px;
+    overflow: hidden;
+    height: 200px;
+    position: relative;
+    border: 2px solid rgba(255,255,255,0.05);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.gallery-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(229, 9, 20, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+.gallery-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: #e50914;
+    box-shadow: 0 20px 40px rgba(229, 9, 20, 0.3);
+}
+
+.gallery-card:hover::before {
+    opacity: 1;
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-card:hover img {
+    transform: scale(1.15);
+}
+
+/* --- 8. FOOTER --- */
+footer {
+    background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
+    padding: 50px 0;
+    text-align: center;
+    border-top: 2px solid rgba(229, 9, 20, 0.3);
+}
+
+footer p {
+    font-size: 12px;
+    color: #808080;
+    margin-bottom: 15px;
+}
+
+.footer-links {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #cccccc;
+}
+
+.footer-links a {
+    margin: 0 15px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.footer-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #e50914;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.footer-links a:hover::after {
+    transform: scaleX(1);
+}
+
+.footer-links a:hover {
+    color: #e50914;
+}
+
+/* --- 9. RESPONSIVE DESIGN --- */
+@media (max-width: 1024px) {
+    .hero {
+        margin-top: 70px;
+    }
+    .main-title {
+        font-size: 60px;
+    }
+    .hero-content {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 15px 0;
+    }
+    .class-logo {
+        font-size: 20px;
+    }
+    nav ul {
+        gap: 15px;
+    }
+    nav a {
+        font-size: 12px;
+    }
+    .hero {
+        height: auto;
+        min-height: 80vh;
+        margin-top: 60px;
+    }
+    .hero-overlay {
+        justify-content: flex-start;
+        padding: 40px 20px;
+    }
+    .main-title {
+        font-size: 48px;
+    }
+    .tagline {
+        font-size: 12px;
+    }
+    .description {
+        font-size: 14px;
+    }
+    .hero-btns {
+        flex-wrap: wrap;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    .student-grid, .piket-grid, .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 15px;
+    }
+    .social-cards {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .social-card {
+        width: 100%;
+    }
+    .student-card img {
+        height: 180px;
+    }
+    .section-title {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .class-logo {
+        font-size: 18px;
+    }
+    nav ul {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    nav a {
+        font-size: 11px;
+    }
+    .hero {
+        min-height: 70vh;
+        margin-top: 50px;
+    }
+    .main-title {
+        font-size: 36px;
+    }
+    .stats {
+        font-size: 12px;
+        flex-wrap: wrap;
+    }
+    .description {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+    button {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+    .student-grid, .piket-grid, .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 12px;
+    }
+    .student-card img {
+        height: 160px;
+    }
+    .gallery-card {
+        height: 150px;
+    }
+    .section-title {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    .piket-card .day {
+        font-size: 16px;
+    }
+    .piket-card ul li {
+        font-size: 12px;
+    }
+}
+
+/* --- 10. ANIMASI & EFEK KHUSUS --- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.student-card, .piket-card, .gallery-card {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 12px;
+}
+::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+    background: #e50914;
+    border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #ff6b6b;
+}
+</style>
+<!-- ========================================== -->
+<!-- AKHIR ISI FILE: style.css                  -->
+<!-- ========================================== -->
+
+</head>
+<body>
+
+    <!-- ========================================== -->
+    <!-- MULAI ISI FILE: index.html                 -->
+    <!-- ========================================== -->
+    <header>
+        <div class="container">
+            <h1 class="class-logo">TENTRI</h1>
+            <nav>
+                <ul>
+                    <li><a href="#beranda" class="active">Beranda</a></li>
+                    <li><a href="#siswa">Siswa</a></li>
+                    <li><a href="#piket">Piket</a></li>
+                    <li><a href="#kenangan">Kenangan</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    
+    <section id="beranda" class="hero">
+        <div class="hero-overlay">
+            <div class="container hero-content">
+                <span class="tagline">MEMORIES TENTRI • ORIGINAL SERIES</span>
+                <h2 class="main-title">TENTRI</h2>
+                <div class="stats">
+                    <span class="match">100% Match</span>
+                    <span class="year">2025/2026</span>
+                    <span class="seasons">1 Seasons</span>
+                </div>
+                <p class="description">
+                    Kisah sebuah kelas yang terletak di GunungSindur dengan siswa yang seru dan guru yang asik, di mana setiap hari ada tawa dan duka dan luka yang terjadi di sini, sebuah momen yang tidak akan terlupakan.
+                </p>
+                <div class="hero-btns">
+                    <!-- Tambahkan ID playBtn di sini -->
+                    <button id="playBtn" class="btn-primary">▶ Putar</button>
+                    <button class="btn-secondary">+ My List</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="social-media">
+        <div class="container">
+            <h3 class="section-title center">IKUTI KAMI</h3>
+            <div class="social-cards">
+                <a href="https://www.instagram.com/trid_asa?igsh=MWg3eHM5aHp1dGVlcQ==" class="social-card instagram" target="_blank">
+                    <div class="social-icon">📸</div>
+                    <span class="platform">Instagram</span>
+                    <span class="username">@trid_asa</span>
+                    <button class="follow-btn">FOLLOW</button>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="siswa" class="student-list">
+        <div class="container">
+            <h3 class="section-title">DAFTAR SISWA</h3>
+            <div id="student-grid" class="student-grid">
+                </div>
+        </div>
+    </section>
+
+    <section id="piket" class="piket">
+        <div class="container">
+            <h3 class="section-title">DUTY ROSTER (JADWAL PIKET)</h3>
+            <div id="piket-grid" class="piket-grid">
+                </div>
+        </div>
+    </section>
+
+    <section id="kenangan" class="kenangan">
+        <div class="container">
+            <h3 class="section-title">MEMORIES</h3>
+            <div id="gallery-grid" class="gallery-grid">
+                </div>
+        </div>
+    </section>
+
+    <!-- MODAL VIDEO (BARU) -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <video id="tentriVideo" controls>
+                <!-- PASTIKAN NAMA FILE VIDEO SESUAI DI SINI -->
+                <source src="vid/tentri.mp4" type="video/mp4">
+                Maaf, browser kamu tidak mendukung pemutaran video.
+            </video>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025/2026 X.3 SMAN 1 GUNUNG SINDUR. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="https://www.instagram.com/trid_asa?igsh=MWg3eHM5aHp1dGVlcQ==" target="_blank">Instagram</a>
+            </div>
+        </div>
+    </footer>
+    <!-- ========================================== -->
+    <!-- AKHIR ISI FILE: index.html                 -->
+    <!-- ========================================== -->
+
+    <!-- Jika sudah dipisah menjadi 3 file, gunakan script di bawah ini -->
+    <!-- <script src="script.js"></script> -->
+
+<!-- ========================================== -->
+<!-- MULAI ISI FILE: script.js                  -->
+<!-- ========================================== -->
+<script>
+const studentsData = [
+    { name: "Achmad Fauzan",  img: "Foto anak tentri/siswa1.jpg", Absen: "absen 1" },
+    { name: "Ahmad Faisal",  img: "Foto anak tentri/siswa2.png", Absen: "absen 2" },
+    { name: "Aliqa Rosmaliana Putri",  img: "Foto anak tentri/siswa3.jpg", Absen: "absen 3" },
+    { name: "Arya Winata", img: "Foto anak tentri/siswa4.png", Absen: "absen 4" },
+    { name: "Ayu Oktavia Debora",  img: "Foto anak tentri/siswa5.png", Absen: "absen 5" },
+    { name: "Azmi Arif Athaya",   img: "Foto anak tentri/siswa6.png", Absen: "absen 6" },
+    { name: "Chusnul Chotimah",   img: "Foto anak tentri/siswa7.jpg", Absen: "absen 7" },
+    { name: "Cintia Nuraini",   img: "Foto anak tentri/siswa8.jpg", Absen: "absen 8" },
+    { name: "Didi Rahman",  img: "Foto anak tentri/siswa9.jpg", Absen: "absen 9" },
+    { name: "Donjuan Putra Guntoro",  img: "Foto anak tentri/siswa10.jpg", Absen: "absen 10" },
+    { name: "Efrilianti",   img: "Foto anak tentri/siswa11.jpg", Absen: "absen 11" },
+    { name: "Elvin Alvaro",   img: "Foto anak tentri/siswa12.jpg", Absen: "absen 12" },
+    { name: "Fahri Husaeni",   img: "Foto anak tentri/siswa13.png", Absen: "absen 13" },
+    { name: "Gilang Ramadhan",  img: "Foto anak tentri/siswa14.png", Absen: "absen 14" },
+    { name: "Hilal Fakhrizy",  img: "Foto anak tentri/siswa15.jpg", Absen: "absen 15" },
+    { name: "Jeremiah Indra Pandita",   img: "Foto anak tentri/siswa16.jpg", Absen: "absen 16" },
+    { name: "Jihan Ramadhani",  img: "Foto anak tentri/siswa17.jpg", Absen: "absen 17" },
+    { name: "Kayla Azkia Salsabilla",  img: "Foto anak tentri/siswa18.jpg", Absen: "absen 18" },
+    { name: "Mochamad Daffa Khairullah",  img: "Foto anak tentri/siswa19.png", Absen: "absen 19" },
+    { name: "Muhamad Fauzhan Abdulah", img: "Foto anak tentri/siswa20.jpg", Absen: "absen 20" },
+    { name: "Muhamad Nopal Abdul Azis",   img: "Foto anak tentri/siswa21.png", Absen: "absen 21" },
+    { name: "Muhammad Ilham Chandra Winata",   img: "Foto anak tentri/siswa22.png", Absen: "absen 22" },
+    { name: "Natashia Aurelia",   img: "Foto anak tentri/siswa23.png", Absen: "absen 23" },
+    { name: "Naura Sakya Anindya",   img: "Foto anak tentri/siswa24.jpg", Absen: "absen 24" },
+    { name: "Nida Hafizah Khoirunisa",   img: "Foto anak tentri/siswa25.jpg", Absen: "absen 25" },
+    { name: "Nikky Awlyah Ardiansyah",  img: "Foto anak tentri/siswa26.jpg", Absen: "absen 26" },
+    { name: "Nurshafa Setiawan",  img: "Foto anak tentri/siswa27.jpg", Absen: "absen 27" },
+    { name: "Perdy Fu",  img: "Foto anak tentri/siswa28.jpg", Absen: "absen 28" },
+    { name: "Putri Meiko Kenza",      img: "Foto anak tentri/siswa29.jpg", Absen: "absen 29" },
+    { name: "Queenita Azizah",   img: "Foto anak tentri/siswa30.png", Absen: "absen 30" },
+    { name: "Rabbany Akbar",   img: "Foto anak tentri/siswa31.jpg", Absen: "absen 31" },
+    { name: "Raffa Adelio Suprapto",   img: "Foto anak tentri/siswa32.png", Absen: "absen 32" },
+    { name: "Rahmah",   img: "Foto anak tentri/siswa33.png", Absen: "absen 33" },
+    { name: "Rievana Alicia Tri Hartanto",   img: "Foto anak tentri/siswa34.jpg", Absen: "absen 34" },
+    { name: "Rifki Syahreza",   img: "Foto anak tentri/siswa35.jpg", Absen: "absen 35" },
+    { name: "Roomeeale Agung An Naffi",   img: "Foto anak tentri/siswa36.jpg", Absen: "absen 36" },
+    { name: "Sandya Arnawama",  img: "Foto anak tentri/siswa37.png", Absen: "absen 37" },
+    { name: "Satria Umar Wirahari",  img: "Foto anak tentri/siswa38.png", Absen: "absen 38" },
+    { name: "Shakyra Al Fira", img: "Foto anak tentri/siswa39.png", Absen: "absen 39" },
+    { name: "Shinta Nurul Maulida",      img: "Foto anak tentri/siswa40.jpg", Absen: "absen 40" },
+    { name: "Vannesa Maharani Bilqis",   img: "Foto anak tentri/siswa41.jpg", Absen: "absen 41" },
+    { name: "Vina",   img: "Foto anak tentri/siswa42.jpg", Absen: "absen 42" },
+    { name: "Wulan Kencana Putri",   img: "Foto anak tentri/siswa43.jpg", Absen: "absen 43" },
+    { name: "Zahra Desiana",   img: "Foto anak tentri/siswa44.jpg", Absen: "absen 44" },
+];
+
+// --- DATA PIKET ---
+const piketData = {
+    Senin:   ["Fauzan", "Ayu", "Efril", "Jeremi", "Nopal", "Kenza", "Shakyra", "Zahra"],
+    Selasa:  ["Faisal", "Azmu", "Elvin", "Chandra", "Nikky", "Rievana", "Queen", "Rifki", "Shinta"],
+    Rabu:    ["Aliqa", "Chusnul", "Fahri", "Kayla", "Nida", "Shafa", "Akbar", "Agung", "Vannesa"],
+    Kamis:   ["Cintia", "Gilang", "Daffa", "Aurel", "Jihan", "Juan", "Raffa", "Sandya", "Vina"],
+    Jumat:   ["Arya", "Didi", "Hilal", "Fauzhan", "Naura", "Perdy", "Rahmah", "Satria", "Wulan"],
+};
+
+// --- DATA GALERI ---
+const galleryImages = [
+    "kenangan1.jpeg", "kenangan2.jpeg", "kenangan3.jpeg", "kenangan4.jpeg", "kenangan5.jpeg", "kenangan6.jpeg",
+    "kenangan7.jpeg", "kenangan8.jpeg", "kenangan9.jpeg", "kenangan10.jpeg", "kenangan11.jpeg", "kenangan12.jpeg"
+];
+
+
+// --- FUNGSI UTAMA UNTUK KONTEN ---
+
+function loadStudents() {
+    const grid = document.getElementById('student-grid');
+    studentsData.forEach(student => {
+        grid.innerHTML += `
+            <div class="student-card">
+                <img src="${student.img}" alt="${student.name}" onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#000000'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center';">
+                <div class="info">
+                    <span class="episode">${student.Absen}</span>
+                    <p class="name">${student.name}</p>
+                </div>
+            </div>
+        `;
+    });
+}
+
+function loadPiket() {
+    const grid = document.getElementById('piket-grid');
+    for (const day in piketData) {
+        let membersHTML = '';
+        piketData[day].forEach(member => {
+            membersHTML += `<li>• ${member}</li>`;
+        });
+
+        grid.innerHTML += `
+            <div class="piket-card">
+                <div class="day">${day.toUpperCase()}</div>
+                <ul>${membersHTML}</ul>
+            </div>
+        `;
+    }
+}
+
+function loadGallery() {
+    const grid = document.getElementById('gallery-grid');
+    galleryImages.forEach(imgSrc => {
+        const path = encodeURI('kenangan tentri/' + imgSrc);
+        grid.innerHTML += `
+            <div class="gallery-card">
+                <img src="${path}" alt="Kenangan" onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#000'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center';">
+            </div>
+        `;
+    });
+}
+
+// --- FUNGSI UNTUK MEMUTAR VIDEO ---
+function initVideoModal() {
+    const playBtn = document.getElementById('playBtn');
+    const videoModal = document.getElementById('videoModal');
+    const closeBtn = document.querySelector('.close-btn');
+    const videoPlayer = document.getElementById('tentriVideo');
+
+    // Buka video saat tombol putar diklik
+    if (playBtn) {
+        playBtn.addEventListener('click', () => {
+            videoModal.style.display = 'flex';
+            videoPlayer.play();
+        });
+    }
+
+    // Tutup video saat tanda "X" diklik
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            videoModal.style.display = 'none';
+            videoPlayer.pause();
+            videoPlayer.currentTime = 0; // Kembalikan ke detik ke-0
+        });
+    }
+
+    // Tutup video jika mengklik di luar area video
+    window.addEventListener('click', (e) => {
+        if (e.target === videoModal) {
+            videoModal.style.display = 'none';
+            videoPlayer.pause();
+            videoPlayer.currentTime = 0;
+        }
+    });
+}
+
+// Jalankan semua fungsi saat halaman dimuat
+document.addEventListener('DOMContentLoaded', () => {
+    loadStudents();
+    loadPiket();
+    loadGallery();
+    initVideoModal();
+});
+</script>
+<!-- ========================================== -->
+<!-- AKHIR ISI FILE: script.js                  -->
+<!-- ========================================== -->
+
+</body>
+</html>
